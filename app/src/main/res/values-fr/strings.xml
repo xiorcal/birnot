@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notifications_header">Notifications</string>
+    <string name="sync_title">Synchronisation des contacts</string>
+    <string name="notification_timepicker_desc">Heure de la notification</string>
+    <string name="notification_timepicker">Choix de l\'heure</string>
+    <string name="notification_title">Notification (approx.)</string>
+    <string name="sync_header">Synchronisation</string>
+    <string name="notification_empty">Toujours notifier</string>
+    <string name="notification_empty_desc">Envoyer une notif\' même si pas d\'anniversaire</string>
+    <string name="notification_channel_description">Channel for birthday notifications</string>
+    <string name="today_no_birthday">Pas d\'anniversaire aujourd\'hui !</string>
+    <string name="today_one_birthday">C\'est l\'anniversaire de %1$s</string>
+    <string name="today_one_date">Date importante pour %1$s</string>
+    <string name="today_one_date_details">Aujourd\'hui c\'est %1$s</string>
+    <string name="today_multiple_birthdays">Plusieurs anniversaires aujourd\'hui !</string>
+    <string name="today_multiple_birthdays_detail">anniversaire de %1$s</string>
+    <string name="today_multiple_birthdays_date">Date importante pour %1$s : %2$s</string>
+
+</resources>

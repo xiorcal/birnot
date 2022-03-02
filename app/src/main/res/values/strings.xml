@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name" translatable="false">Birthday Notificator</string>
+    <!-- Settings Activity Title -->
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="notifications_header">Notifications</string>
+    <string name="sync_header">Synchronization</string>
+
+    <!-- Notifications Preferences -->
+    <string name="notification_title">Notification (approx.)</string>
+    <string name="notification_empty">Always notify</string>
+    <string name="notification_empty_desc">Send notification even if no birthday</string>
+
+
+    <string name="notification_timepicker">Select time</string>
+    <string name="notification_timepicker_desc">Time for the notification to be sent</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Enable contact sync</string>
+    <string name="notification_channel_description">Channel for birthday notifications</string>
+    <string name="today_no_birthday">No birthday today!</string>
+    <string name="today_one_birthday">It\'s %1$s birthday</string>
+    <string name="today_one_date">Important date for %1$s</string>
+    <string name="today_one_date_details">Note for today : %1$s</string>
+    <string name="today_multiple_birthdays">Multiple birthdays today !</string>
+    <string name="today_multiple_birthdays_detail">%1$s birthday</string>
+    <string name="today_multiple_birthdays_date">Important for %1$s : %2$s</string>
+
+</resources>
