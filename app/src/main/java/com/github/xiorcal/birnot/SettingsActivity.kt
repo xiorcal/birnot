@@ -61,15 +61,13 @@ class SettingsActivity : AppCompatActivity() {
                     val newHour = sharedPrefs.getString("notification_hour", "NOTPROVIDED")
                     val newMinute = sharedPrefs.getString("notification_minute", "NOTPROVIDED")
                     Log.i("BIRNO", "notification_hour value : $newHour:$newMinute")
-                    SchedulerHelper.scheduleNotification(this)
+                    if (sharedPrefs.getBoolean("notification", false)) {
+                        SchedulerHelper.scheduleNotification(this)
+                    }
                 }
 
             }
         }
-
-    
-
-    
 
 
     private fun requestContactAccess() {
@@ -96,7 +94,7 @@ class SettingsActivity : AppCompatActivity() {
             .putBoolean("sync", false)
             .putBoolean("notification", false)
             .apply()
-       SchedulerHelper.unScheduleNotification(this)
+        SchedulerHelper.unScheduleNotification(this)
     }
 
 

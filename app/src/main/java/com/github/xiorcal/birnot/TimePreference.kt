@@ -25,7 +25,7 @@ class TimePickerPreference(context: Context?, attrs: AttributeSet?) : Preference
     private lateinit var currentHour: String
     private lateinit var currentMinute: String
     private lateinit var binding: TimePickerLayoutBinding
-    val formatter: DateTimeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
@@ -60,6 +60,7 @@ class TimePickerPreference(context: Context?, attrs: AttributeSet?) : Preference
                 .setHour(currentHour.toInt())
                 .setMinute(currentMinute.toInt())
                 .setTitleText(context.getString(R.string.notification_timepicker_desc))
+                .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
                 .build()
 
         picker.addOnPositiveButtonClickListener {

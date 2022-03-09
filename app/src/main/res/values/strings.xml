@@ -5,7 +5,7 @@
 
     <!-- Preference Titles -->
     <string name="notifications_header">Notifications</string>
-    <string name="sync_header">Synchronization</string>
+    <string name="sync_header">Contacts</string>
 
     <!-- Notifications Preferences -->
     <string name="notification_title">Notification (approx.)</string>
@@ -17,7 +17,7 @@
     <string name="notification_timepicker_desc">Time for the notification to be sent</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Enable contact sync</string>
+    <string name="sync_title">Allow contact permission</string>
     <string name="notification_channel_description">Channel for birthday notifications</string>
     <string name="today_no_birthday">No birthday today!</string>
     <string name="today_one_birthday">It\'s %1$s birthday</string>

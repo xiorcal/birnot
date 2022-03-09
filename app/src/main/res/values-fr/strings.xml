@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="notifications_header">Notifications</string>
-    <string name="sync_title">Synchronisation des contacts</string>
+    <string name="sync_title">Accès aux contacts</string>
     <string name="notification_timepicker_desc">Heure de la notification</string>
     <string name="notification_timepicker">Choix de l\'heure</string>
     <string name="notification_title">Notification (approx.)</string>
-    <string name="sync_header">Synchronisation</string>
+    <string name="sync_header">Contacts</string>
     <string name="notification_empty">Toujours notifier</string>
     <string name="notification_empty_desc">Envoyer une notif\' même si pas d\'anniversaire</string>
     <string name="notification_channel_description">Channel for birthday notifications</string>
