@@ -22,8 +22,8 @@ class SchedulerHelper {
                 intent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
             )
             val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-            val hours = sharedPrefs.getString("notification_hour", "UNPROVIDED")?.toInt()
-            val minutes = sharedPrefs.getString("notification_minute", "UNPROVIDED")?.toInt()
+            val hours = sharedPrefs.getString("notification_hour", "-1")?.toInt()
+            val minutes = sharedPrefs.getString("notification_minute", "-1")?.toInt()
 
             if (hours != null && minutes != null) {
                 val calendar = Calendar.getInstance().apply {

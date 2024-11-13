@@ -1,20 +1,27 @@
 package com.github.xiorcal.birnot
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.provider.ContactsContract
+import android.provider.Settings.Global.getString
+import android.util.Log
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.preference.PreferenceManager
 import com.github.xiorcal.birnot.model.EventInfo
 import com.github.xiorcal.birnot.model.EventType
 import java.text.DateFormat
+import java.text.Format
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -90,16 +97,14 @@ class AlarmReceiver : BroadcastReceiver() {
 
 
     private fun createNotificationChannel(context: Context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, context.getString(R.string.app_name), importance).apply {
-                description = context.getString(R.string.notification_channel_description)
-            }
-            // Register the channel with the system
-            val notificationManager: NotificationManager =
-                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, context.getString(R.string.app_name), importance).apply {
+            description = context.getString(R.string.notification_channel_description)
         }
+        // Register the channel with the system
+        val notificationManager: NotificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
 
 
     }
@@ -124,9 +129,9 @@ class AlarmReceiver : BroadcastReceiver() {
                 title = context.getString(R.string.today_multiple_birthdays)
                 for (e in events) {
                     if (e.eventType == EventType.BIRTHDAY) {
-                        body += context.getString(R.string.today_multiple_birthdays_detail, e.contactName)
+                        body += context.getString(R.string.today_multiple_birthdays_detail, e.contactName) + "\n"
                     } else {
-                        body += context.getString(R.string.today_multiple_birthdays_date, e.contactName, e.eventLabel)
+                        body += context.getString(R.string.today_multiple_birthdays_date, e.contactName, e.eventLabel)+ "\n"
                     }
                 }
             }
@@ -137,6 +142,19 @@ class AlarmReceiver : BroadcastReceiver() {
                 .setContentTitle(title)
                 .setContentText(body)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.d("AlarmReceiver", "No permission")
+
+                Toast.makeText(context, context.getString(R.string.toast_no_perm,"POST_NOTIFICATIONS")
+                    , Toast.LENGTH_LONG).show()
+                return
+            }
             notify(NOTIFICATION_ID, build.build())
         }
 

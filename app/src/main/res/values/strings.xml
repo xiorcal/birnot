@@ -26,5 +26,7 @@
     <string name="today_multiple_birthdays">Multiple birthdays today !</string>
     <string name="today_multiple_birthdays_detail">%1$s birthday</string>
     <string name="today_multiple_birthdays_date">Important for %1$s : %2$s</string>
+    <string name="test_button">Test notification</string>
+    <string name="toast_no_perm">Permission %1$s not granted</string>
 
 </resources>
